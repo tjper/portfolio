@@ -1,13 +1,29 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout';
+import { Posts } from '../components/Posts';
+import { Content } from '../components/Post';
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">About</Link>
-    </p>
-  </Layout>
-)
+type Props = {
+  contents: Content[]
+}
 
-export default IndexPage
+export default function IndexPage({ contents }: Props) {
+  return (
+    <Layout title="Timeline | T James Perry" contents={contents}>
+      <div className='m-auto w-4/6 flex flex-col'>
+        <Posts contents={contents} />
+      </div>
+    </Layout>
+  );
+};
+
+export async function getStaticProps() {
+  const contents = [
+    { id: 1, title: 'Weekend in Door County' },
+    { id: 2, title: 'Error handling in Golang' },
+  ];
+  return {
+    props: {
+      contents: contents,
+    }
+  }
+}
