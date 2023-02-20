@@ -6,6 +6,11 @@ import { Typography } from './Typography';
 
 import twitter from '../images/twitter.png';
 import youtube from '../images/youtube.png';
+import github from '../images/github.png';
+
+import { FolderIcon } from '@heroicons/react/24/outline';
+import { HomeIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
 type Props = {
   children?: ReactNode;
@@ -30,15 +35,18 @@ const Layout = (props: Props) => {
           </div>
           <div className="mb-4">
             <nav className="flex flex-col space-y-1">
-              <Typography size="md">
-                <Link href="/">Home</Link>
-              </Typography>
-              <Typography size="md">
-                <Link href="/about">About</Link>
-              </Typography>
-              <Typography size="md">
-                <Link href="/cheatsheets">Cheatsheets</Link>
-              </Typography>
+              <Link href="/" className="flex items-center space-x-3">
+                <HomeIcon className="h-5" />
+                <Typography size="md">Home</Typography>
+              </Link>
+              <Link href="/about" className="flex items-center space-x-3">
+                <MagnifyingGlassIcon className="h-5" />
+                <Typography size="md">About</Typography>
+              </Link>
+              <Link href="/cheatsheets" className="flex items-center space-x-3">
+                <FolderIcon className="h-5" />
+                <Typography size="md">Cheatsheets</Typography>
+              </Link>
             </nav>
           </div>
           {submenu && (
@@ -60,6 +68,9 @@ const Layout = (props: Props) => {
             </Link>
             <Link href="https://www.youtube.com/@tjper">
               <Image src={youtube} alt="YouTube" height={24} />
+            </Link>
+            <Link href="https://www.github.com/tjper">
+              <Image src={github} alt="Github" height={24} />
             </Link>
           </div>
         </div>

@@ -9,6 +9,7 @@
     "pretty": "prettier -w ./*"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.16",
     "@next/font": "^13.1.6",
     "highlight.js": "^11.7.0",
     "next": "latest",
