@@ -6,7 +6,10 @@ import { Paragraph } from '../components/Paragraph';
 export default function About() {
   return (
     <Layout title="Resume | T. James Perry">
-      <Title size="xl">Welcome!</Title>
+      <div className="flex items-center space-x-3">
+        <Title size="xl">Welcome!</Title>
+        <span className="text-3xl">👋</span>
+      </div>
       <Paragraph size="md">
         This is my personal site. I have few snippets of information below; allowing you to get to know me a bit better.
         You can see more of what I have been up to recently by exploring this site through the menu.
