@@ -1,4 +1,5 @@
 import '../styles/global.css';
+import 'highlight.js/styles/base16/material.css';
 import localFont from '@next/font/local';
 
 const font = localFont({
