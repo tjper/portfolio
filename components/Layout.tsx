@@ -1,16 +1,20 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
+
+import { Icon } from './Icon';
 import { Typography } from './Typography';
 
 import twitter from '../images/twitter.png';
 import youtube from '../images/youtube.png';
 import github from '../images/github.png';
 
+import { Bars3Icon } from '@heroicons/react/24/outline';
 import { FolderIcon } from '@heroicons/react/24/outline';
 import { HomeIcon } from '@heroicons/react/24/outline';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { MoonIcon } from '@heroicons/react/24/outline';
 
 type Props = {
   children?: ReactNode;
@@ -21,18 +25,37 @@ type Props = {
 const Layout = (props: Props) => {
   const { children, title, submenu } = props;
 
+  const [menuVisible, setMenuVisible] = useState<boolean>(false);
+
   return (
-    <div className="m-auto max-w-screen-2xl">
+    <div className="m-auto">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="flex">
-        <div className="fixed mt-40 flex w-60 flex-col">
-          <div className="mb-4">
-            <Typography>T. James Perry</Typography>
+      <div>
+        <header className="fixed z-50 w-full bg-stone-50 px-7 py-3">
+          <div className="absolute left-1/2 flex max-w-fit -translate-x-1/2 transform items-center space-x-2">
+            <Icon />
+            <Typography size="lg">T. James Perry</Typography>
           </div>
+          <div className="flex items-center justify-between">
+            <div>
+              <button onClick={() => setMenuVisible(!menuVisible)}>
+                <Bars3Icon className="h-8" />
+              </button>
+            </div>
+            <button>
+              <MoonIcon className="h-7" />
+            </button>
+          </div>
+        </header>
+        <div
+          className={`fixed h-screen w-80 flex-col bg-stone-50 p-8 pt-20 ${
+            menuVisible ? '' : '-translate-x-full'
+          } transition-all`}
+        >
           <div className="mb-4">
             <nav className="flex flex-col space-y-1">
               <Link href="/" className="flex items-center space-x-3">
@@ -62,7 +85,7 @@ const Layout = (props: Props) => {
               </nav>
             </div>
           )}
-          <div className="mt-4 flex space-x-4">
+          <div className="flex space-x-4">
             <Link href="/">
               <Image src={twitter} alt="Twitter" height={24} />
             </Link>
@@ -74,7 +97,9 @@ const Layout = (props: Props) => {
             </Link>
           </div>
         </div>
-        <div className="m-auto h-screen w-7/12 overflow-y-auto scroll-smooth px-24 pt-20">{children}</div>
+        <div className="flex">
+          <div className="m-auto h-screen overflow-y-auto scroll-smooth px-12 pt-24">{children}</div>
+        </div>
       </div>
     </div>
   );
