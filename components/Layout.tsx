@@ -57,7 +57,7 @@ const Layout = (props: Props) => {
         <div
           className={`fixed h-screen w-80 flex-col bg-stone-50 dark:bg-zinc-900 p-8 pt-20 ${
             menuVisible ? '' : '-translate-x-full'
-          } transition-all`}
+          } transition-transform`}
         >
           <div className="mb-4">
             <nav className="flex flex-col space-y-1">
