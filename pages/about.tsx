@@ -5,7 +5,7 @@ import { Paragraph } from '../components/Paragraph';
 
 export default function About() {
   return (
-    <Layout title="Resume | T. James Perry">
+    <Layout title="About | T. James Perry">
       <div className="flex items-center space-x-3">
         <Title size="xl">Welcome!</Title>
         <span className="text-3xl">👋</span>
