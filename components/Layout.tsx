@@ -28,7 +28,7 @@ const Layout = (props: Props) => {
   const { children, title, submenu } = props;
 
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
-  const {enabled: darkMode, toggle: toggleDarkMode} = useDarkModeContext();
+  const { enabled: darkMode, toggle: toggleDarkMode } = useDarkModeContext();
 
   return (
     <div className={`m-auto ${darkMode ? 'dark' : ''}`}>
@@ -39,23 +39,29 @@ const Layout = (props: Props) => {
       </Head>
       <div className="dark:bg-zinc-800 dark:text-zinc-50">
         <header className="fixed z-50 w-full bg-stone-50 px-7 py-3 dark:bg-zinc-900">
-          <div className="absolute left-1/2 flex max-w-fit -translate-x-1/2 transform items-center space-x-2">
+          <div className="absolute left-1/2 top-4 flex max-w-fit -translate-x-1/2 transform items-center space-x-2">
             <Icon />
             <Typography size="lg">T. James Perry</Typography>
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <button onClick={() => setMenuVisible(!menuVisible)} className="h-10 w-10 rounded-full bg-zinc-200 active:bg-zinc-300 hover:border hover:border-zinc-300 dark:bg-black dark:active:bg-zinc-900 dark:hover:border-zinc-900">
+              <button
+                onClick={() => setMenuVisible(!menuVisible)}
+                className="h-10 w-10 rounded-full bg-zinc-200 hover:border hover:border-zinc-300 active:bg-zinc-300 dark:bg-black dark:hover:border-zinc-900 dark:active:bg-zinc-900"
+              >
                 <Bars3Icon className="m-auto h-8" />
               </button>
             </div>
-            <button onClick={() => toggleDarkMode()} className="h-10 w-10 rounded-full bg-zinc-200 active:bg-zinc-300 hover:border hover:border-zinc-300 dark:bg-black dark:active:bg-zinc-900 dark:hover:border-zinc-900">
+            <button
+              onClick={() => toggleDarkMode()}
+              className="h-10 w-10 rounded-full bg-zinc-200 hover:border hover:border-zinc-300 active:bg-zinc-300 dark:bg-black dark:hover:border-zinc-900 dark:active:bg-zinc-900"
+            >
               <MoonIcon className="m-auto h-7" />
             </button>
           </div>
         </header>
         <div
-          className={`fixed h-screen w-80 flex-col bg-stone-50 dark:bg-zinc-900 p-8 pt-20 ${
+          className={`fixed h-screen w-80 flex-col bg-stone-50 p-8 pt-20 dark:bg-zinc-900 ${
             menuVisible ? '' : '-translate-x-full'
           } transition-transform`}
         >

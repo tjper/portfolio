@@ -4,8 +4,8 @@ A collection of work done by T James Perry.
 
 ## Bugs
 
-[ ] Update transition properties on sidebar, so dark mode toggle doesn't fade in.
-[ ] Align name vertically.
+[X] Update transition properties on sidebar, so dark mode toggle doesn't fade in.
+[X] Align name vertically.
 
 ## Features Todo
 
