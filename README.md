@@ -7,8 +7,6 @@ A collection of work done by T James Perry.
 ## Features Todo
 
 [ ] Pull cheatsheets from Github gist.
-[ ] Complete styling for large screens.
-[ ] Picture?
 
 ## Post MVP (maybe)
 

@@ -15,7 +15,7 @@ export const Paragraph = (props: Props) => {
   const fontWeight = weightMap[weight];
   const textSize = sizeMap[size];
 
-  return <p className={`my-2 indent-4 leading-relaxed ${textSize} ${fontWeight}`}>{children}</p>;
+  return <p className={`my-4 indent-4 leading-relaxed ${textSize} ${fontWeight}`}>{children}</p>;
 };
 
 const weightMap: Record<ParagraphWeight, string> = {
