@@ -122,7 +122,7 @@ const Layout = (props: Props) => {
               </>
             )}
           </div>
-          <div className="max-w-screen-md min-h-screen m-auto overflow-y-scroll pt-36">{children}</div>
+          <div className="max-w-screen-md min-h-screen m-auto overflow-y-scroll pt-36 px-4">{children}</div>
         </div>
       </div>
     </div>

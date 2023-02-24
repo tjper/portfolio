@@ -1,5 +1,4 @@
 import Layout from '../components/Layout';
-import { InlineLink } from '../components/InlineLink';
 import { Title } from '../components/Title';
 import { Paragraph } from '../components/Paragraph';
 
@@ -18,7 +17,7 @@ export default function About() {
         You can see more of what I have been up to recently by exploring this site through the menu.
       </Paragraph>
       <Title size="lg">About</Title>
-      <div>
+      <div className="flex flex-col items-center sm:block">
         <Image className="float-right mx-6 mt-2 mb-6 shadow-md shadow-zinc-900" src={james} alt="James" quality={100} width={310} height={200} placeholder="blur" />
         <Paragraph size="md">
           My lovely wife, our children, and I reside in Wisconsin, where we enjoy our many seasons and a community of friends and family that we have built over the years. Apart from my fatherly duties, I stay busy with a career in software engineering, being a generally curious person, and finding the proper balance between being thoughtful and not taking myself too seriously. I hope to use this website to rub my gifts together and create something of substance for your and my benefit.
