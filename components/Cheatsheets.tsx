@@ -11,8 +11,8 @@ type Props = {
 export const Cheatsheets = ({ cheatsheets, filters, onClick }: Props) => {
   return (
     <div className="flex flex-col space-y-4">
-      {cheatsheets.map((cheatsheet) => (
-        <Cheatsheet key={cheatsheet.title} {...cheatsheet} filters={filters} onClick={onClick} />
+      {cheatsheets.map((cheatsheet, index) => (
+        <Cheatsheet key={index} {...cheatsheet} filters={filters} onClick={onClick} />
       ))}
     </div>
   );
