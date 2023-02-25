@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tag } from '../lib/gist';
 
 type Props = {
   tag: Tag;
@@ -20,9 +21,6 @@ export const CheatsheetTag = ({ tag, selected, onClick }: Props) => {
     </button>
   );
 };
-
-export const Tags = ['terminal', 'neovim', 'nextjs', 'go'] as const;
-export type Tag = (typeof Tags)[number];
 
 const selectedBackgroundColorMap: Record<Tag, string> = {
   terminal: 'bg-sky-200',

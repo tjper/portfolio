@@ -6,19 +6,24 @@
     "start": "next start",
     "type-check": "tsc",
     "lint": "next lint",
-    "pretty": "prettier -w ./*"
+    "pretty": "prettier -w ./*",
+    "test": "jest",
+    "test:ci": "jest --ci"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.16",
     "@next/font": "^13.1.6",
     "highlight.js": "^11.7.0",
     "next": "latest",
+    "octokit": "^2.0.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "zod": "^3.20.6"
   },
   "devDependencies": {
     "@tailwindcss/language-server": "^0.0.11",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
@@ -26,6 +31,8 @@
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "eslint-config-prettier": "^8.6.0",
+    "jest": "^29.4.3",
+    "jest-environment-jsdom": "^29.4.3",
     "postcss": "^8.4.21",
     "prettier": "2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.3",

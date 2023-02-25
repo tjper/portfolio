@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+
 import Layout from '../components/Layout';
 import { Title } from '../components/Title';
 import { Paragraph } from '../components/Paragraph';
 import { Cheatsheets } from '../components/Cheatsheets';
 import { Props as CheatsheetProps } from '../components/Cheatsheet';
-import { CheatsheetTag, Tag, Tags } from '../components/CheatsheetTag';
+import { CheatsheetTag } from '../components/CheatsheetTag';
+
+import { createClient as createGistClient, Tag, Tags } from '../lib/gist';
 
 type Props = {
   cheatsheets: CheatsheetProps[];
@@ -46,35 +49,14 @@ export default function CheatsheetsPage({ cheatsheets }: Props) {
 }
 
 export async function getStaticProps() {
-  const cheatsheets = [
-    {
-      id: 1,
-      title: 'Closing Neovim',
-      tags: ['neovim'],
-      answer: { kind: 'code', text: ':q' },
-    },
-    {
-      id: 2,
-      title: 'Opening Neovim',
-      tags: ['neovim', 'terminal'],
-      answer: { kind: 'terminal', prompt: 'nvim' },
-    },
-    {
-      id: 3,
-      title: 'Go For-Loop',
-      tags: ['go'],
-      answer: { kind: 'editor', language: 'go', text: goForLoop },
-    },
-  ];
+  if (!process.env.GITHUB_ACCESS_TOKEN) return;
+
+  const client = createGistClient(process.env.GITHUB_ACCESS_TOKEN!);
+  const gists = await client.list();
 
   return {
     props: {
-      cheatsheets: cheatsheets,
+      cheatsheets: gists,
     },
   };
 }
-
-const goForLoop = `l := 10
-for i := 0; i < l; i++ {
-  // do something
-}`;

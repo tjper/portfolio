@@ -1,21 +1,23 @@
 import { ReactNode } from 'react';
 
-export type ParagraphSize = 'xl' | 'lg' | 'md';
+export type ParagraphSize = 'xl' | 'lg' | 'md' | 'sm';
 export type ParagraphWeight = 'light' | 'extralight';
 
 type Props = {
   children?: ReactNode;
   size?: ParagraphSize;
   weight?: ParagraphWeight;
+  compact?: boolean;
 };
 
 export const Paragraph = (props: Props) => {
-  const { children, size = 'md', weight = 'extralight' } = props;
+  const { children, size = 'md', weight = 'extralight', compact = false } = props;
 
   const fontWeight = weightMap[weight];
   const textSize = sizeMap[size];
+  const margin = compact ? 'my-2' : 'my-4';
 
-  return <p className={`my-4 indent-4 leading-relaxed ${textSize} ${fontWeight}`}>{children}</p>;
+  return <p className={`indent-8 leading-relaxed ${margin} ${textSize} ${fontWeight}`}>{children}</p>;
 };
 
 const weightMap: Record<ParagraphWeight, string> = {
@@ -27,4 +29,5 @@ const sizeMap: Record<ParagraphSize, string> = {
   xl: 'text-2xl',
   lg: 'text-xl',
   md: 'text-lg',
+  sm: 'text-md',
 };
