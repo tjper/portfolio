@@ -36,7 +36,7 @@ const Layout = (props: Props) => {
 
   const isHome = router.pathname === '/';
   const isAbout = router.pathname === '/about';
-  const isCheatsheets = router.pathname === '/cheatsheets';
+  const isSnippets = router.pathname === '/snippets';
 
   return (
     <div className={`m-auto ${darkMode ? 'dark' : ''}`}>
@@ -93,11 +93,11 @@ const Layout = (props: Props) => {
                 <Typography size="md">About</Typography>
               </Link>
               <Link
-                href="/cheatsheets"
-                className={`flex items-center space-x-3 border-l-4 px-2 ${isCheatsheets && 'border-cyan-600'}`}
+                href="/snippets"
+                className={`flex items-center space-x-3 border-l-4 px-2 ${isSnippets && 'border-cyan-600'}`}
               >
                 <FolderIcon className="h-6" />
-                <Typography size="md">Cheatsheets</Typography>
+                <Typography size="md">Snippets</Typography>
               </Link>
             </nav>
             <div className="m-auto mt-8 mb-5 w-5/6">

@@ -61,7 +61,7 @@ class Client {
 
         total.push({
           title: title,
-          tags: tags as Tag[],
+          tags: tags,
           description: description,
           files: files,
         });
@@ -84,15 +84,10 @@ export function createClient(accessToken: string) {
 
 export type Gist = {
   title: string;
-  tags: Tag[];
+  tags: string[];
   description?: string;
   files: File[];
 };
-
-export type Context = 'code' | 'terminal' | 'editor';
-
-export const Tags = ['terminal', 'neovim', 'go', 'nextjs'] as const;
-export type Tag = (typeof Tags)[number];
 
 export type File = {
   name: string;

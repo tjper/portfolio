@@ -1,5 +1,5 @@
 import '../styles/global.css';
-import 'highlight.js/styles/base16/material.css';
+import 'highlight.js/styles/nord.css';
 import localFont from '@next/font/local';
 
 import { DarkModeContext } from '../context/darkmode';

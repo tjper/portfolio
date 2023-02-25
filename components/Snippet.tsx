@@ -1,6 +1,6 @@
 import { Title } from './Title';
-import { CheatsheetTag } from './CheatsheetTag';
-import { CheatsheetFile } from './CheatsheetFile';
+import { SnippetTag } from './SnippetTag';
+import { SnippetFile } from './SnippetFile';
 import { Gist, Tag } from '../lib/gist';
 import { Paragraph } from './Paragraph';
 
@@ -9,7 +9,7 @@ export type Props = Gist & {
   onClick: (tag: Tag) => void;
 };
 
-export const Cheatsheet = (props: Props) => {
+export const Snippet = (props: Props) => {
   const { title, tags, description, files, filters, onClick } = props;
 
   if (filters && !isFilteredFor(tags, filters)) {
@@ -25,7 +25,7 @@ export const Cheatsheet = (props: Props) => {
         <div className="flex space-x-3">
           {tags.map((tag) => {
             const selected = filters?.includes(tag);
-            return <CheatsheetTag key={tag} tag={tag} selected={selected} onClick={onClick} />;
+            return <SnippetTag key={tag} tag={tag} selected={selected} onClick={onClick} />;
           })}
         </div>
       </div>
@@ -36,7 +36,7 @@ export const Cheatsheet = (props: Props) => {
       )}
       <div className="mt-4 flex flex-col space-y-4">
         {files.map((file, index) => (
-          <CheatsheetFile key={index} {...file} />
+          <SnippetFile key={index} {...file} />
         ))}
       </div>
     </div>

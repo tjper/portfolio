@@ -7,7 +7,7 @@ type Props = {
   onClick: (tag: Tag) => void;
 };
 
-export const CheatsheetTag = ({ tag, selected, onClick }: Props) => {
+export const SnippetTag = ({ tag, selected, onClick }: Props) => {
   const bgColor = selected ? selectedBackgroundColorMap[tag] : backgroundColorMap[tag];
   const borderColor = selected ? borderColorMap[tag] : '';
 
