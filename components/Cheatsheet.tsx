@@ -29,9 +29,15 @@ export const Cheatsheet = (props: Props) => {
           })}
         </div>
       </div>
-      {description && (<Paragraph size='sm' compact>{description}</Paragraph>)}
-      <div className="flex flex-col space-y-4 mt-4">
-        {files.map((file, index) => (<CheatsheetFile key={index}{...file} />))}
+      {description && (
+        <Paragraph size="sm" compact>
+          {description}
+        </Paragraph>
+      )}
+      <div className="mt-4 flex flex-col space-y-4">
+        {files.map((file, index) => (
+          <CheatsheetFile key={index} {...file} />
+        ))}
       </div>
     </div>
   );

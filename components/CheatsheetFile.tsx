@@ -3,6 +3,4 @@ import { Editor } from './Editor';
 
 type Props = File;
 
-export const CheatsheetFile = (props: Props) => (
-  <Editor text={props.content} language={props.language} />
-);
+export const CheatsheetFile = (props: Props) => <Editor text={props.content} language={props.language} />;
